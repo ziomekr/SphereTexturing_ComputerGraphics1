@@ -23,6 +23,7 @@ namespace SphereTexturing_ComputerGraphics1
         public MainWindow()
         {
             InitializeComponent();
+            Sphere s = new Sphere(100, 100, 100);
         }
     }
 }
