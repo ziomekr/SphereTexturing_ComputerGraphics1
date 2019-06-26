@@ -9,6 +9,7 @@ namespace SphereTexturing_ComputerGraphics1
     public class Vertex
     {
         public Point3D P { get; set; }
+        public Point3D Projected { get; set; }
         public MappingPoint TextureCoordinates { get; set; }
     }
 
@@ -24,19 +25,5 @@ namespace SphereTexturing_ComputerGraphics1
         public double Y { get; set; }
     }
 
-    public class Point3D
-    {
-        public Point3D(int x, int y, int z, int w)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-            W = w;
-        }
-
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
-        public int W { get; set; }
-    }
+    
 }
