@@ -13,6 +13,7 @@ namespace SphereTexturing_ComputerGraphics1
     {
         public static Matrix<double> GetRotationMatrix(Vector3D rotationVector)
         {
+            //rotationVector = (Vector3D)(rotationVector / (Math.PI / 180));
             Matrix<double> Rx = DenseMatrix.OfArray(new double[,]
             {
                 { 1, 0, 0, 0 },

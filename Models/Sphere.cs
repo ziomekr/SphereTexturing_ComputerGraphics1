@@ -52,7 +52,7 @@ namespace SphereTexturing_ComputerGraphics1
         {
             for (int i = 0; i <= Meridians - 2; i++)
             {
-                Mesh[i]= new MeshTriangle(vertices[0], vertices[i + 2], vertices[i + i]);
+                Mesh[i]= new MeshTriangle(vertices[0], vertices[i + 2], vertices[i + 1]);
                 Mesh[2*(Parallels - 1) * Meridians + Meridians + i]= new MeshTriangle(vertices[Meridians * Parallels + 1], vertices[Meridians * (Parallels - 1) + i + 1], vertices[Meridians * (Parallels - 1) + i + 2]);
             }
             Mesh[Meridians - 1] = new MeshTriangle(vertices[0], vertices[1], vertices[Meridians]);

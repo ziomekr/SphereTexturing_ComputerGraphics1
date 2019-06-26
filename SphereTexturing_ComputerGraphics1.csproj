@@ -60,16 +60,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BackFaceCulling.cs" />
-    <Compile Include="Camera.cs" />
-    <Compile Include="MeshTriangle.cs" />
-    <Compile Include="Scanline\Edge.cs" />
-    <Compile Include="Scanline\ScanlineFillVertexSort.cs" />
-    <Compile Include="TransformationMatrix.cs" />
-    <Compile Include="Sphere.cs" />
-    <Compile Include="Point3D.cs" />
-    <Compile Include="Vector3D.cs" />
-    <Compile Include="Vertex.cs" />
+    <Compile Include="Rendering\BackFaceCulling.cs" />
+    <Compile Include="Models\Camera.cs" />
+    <Compile Include="Models\MeshTriangle.cs" />
+    <Compile Include="Rendering\Edge.cs" />
+    <Compile Include="Rendering\ScanlineFillVertexSort.cs" />
+    <Compile Include="Models\Scene.cs" />
+    <Compile Include="Rendering\TransformationMatrix.cs" />
+    <Compile Include="Models\Sphere.cs" />
+    <Compile Include="Models\Point3D.cs" />
+    <Compile Include="Models\Vector3D.cs" />
+    <Compile Include="Models\Vertex.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

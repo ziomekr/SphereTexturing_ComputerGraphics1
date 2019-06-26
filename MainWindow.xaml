@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="Sphere Texturing - Rafał Ziomek" Height="450" Width="800">
     <Grid>
-        <Canvas Name="SceneCanvas" Focusable="True" Background="White" MouseLeftButtonDown="Click" />
+        <Canvas Name ="SceneCanvas" Width="{Binding ActualWidth, ElementName=SceneImage}" Height="{Binding ActualHeight, ElementName=SceneImage}" MouseLeftButtonDown="Click">
+            <Canvas.Background>
+                <VisualBrush  >
+                    <VisualBrush.Visual>
+                        <Image x:Name="SceneImage"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Canvas.Background>
+        </Canvas>
     </Grid>
 </Window>

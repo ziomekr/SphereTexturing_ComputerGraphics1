@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SphereTexturing_ComputerGraphics1;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,17 +11,17 @@ namespace ComputerGraphics_ClippingFilling
     internal class ScanlineFillVertexSort
     {
         private List<Edge> activeEdgeTable = new List<Edge>();
-        private Canvas Canvas;
+        private byte[] Pixels;
         private WrappedList polygonVertices;
         private List<int> sortedIndices;
 
-        public ScanlineFillVertexSort(List<Point> points, Canvas c)
+        public ScanlineFillVertexSort(List<Point3D> points, byte[] pixels)
         {
-            Canvas = c;
+            Pixels = pixels;
             polygonVertices = new WrappedList(points);
-            List<Point> temp = points.OrderBy(p => p.Y).ToList();
+            List<Point3D> temp = points.OrderBy(p => p.Y).ToList();
             this.sortedIndices = new List<int>();
-            foreach (Point p in temp)
+            foreach (Point3D p in temp)
             {
                 sortedIndices.Add(points.IndexOf(p));
             }
@@ -28,15 +29,13 @@ namespace ComputerGraphics_ClippingFilling
 
         public void drawLine(Point p1, Point p2)
         {
-            Line l = new Line();
-            l.X1 = p1.X;
-            l.Y1 = p1.Y;
-            l.X2 = p2.X;
-            l.Y2 = p2.Y;
-            SolidColorBrush brush = new SolidColorBrush(Colors.Red);
-            l.StrokeThickness = 1;
-            l.Stroke = brush;
-            Canvas.Children.Add(l);
+            for (int x = (int)p1.X; x < (int)p2.X; x++)
+            {
+                Pixels[x * 4 + (int)p1.Y * 600 * 4 + 2] = 255;
+                Pixels[x * 4 + (int)p1.Y * 600 * 4 + 1] = 255;
+                Pixels[x * 4 + (int)p1.Y * 600 * 4] = 255;
+                Pixels[x * 4 + (int)p1.Y * 600 * 4 + 3] = 255;
+            }
         }
 
         public void fillPolygon()
@@ -63,7 +62,7 @@ namespace ComputerGraphics_ClippingFilling
                 activeEdgeTable = activeEdgeTable.OrderBy(e => e.x).ToList();
                 for (int eIdx = 0; eIdx < activeEdgeTable.Count; eIdx += 2)
                 {
-                    drawLine(new Point(activeEdgeTable[eIdx].x, y), new Point(activeEdgeTable[eIdx + 1].x, y));
+                    drawLine(new Point(activeEdgeTable[eIdx].x, (int)y), new Point(activeEdgeTable[eIdx + 1].x, (int)y));
                 }
                 y += 1;
                 activeEdgeTable = activeEdgeTable.Where(e => (e.ymax != y)).ToList();
@@ -76,14 +75,14 @@ namespace ComputerGraphics_ClippingFilling
 
         private class WrappedList
         {
-            private List<Point> array;
+            private List<Point3D> array;
 
-            public WrappedList(List<Point> _arr)
+            public WrappedList(List<Point3D> _arr)
             {
                 array = _arr;
             }
 
-            public Point this[int position]
+            public Point3D this[int position]
             {
                 get
                 {

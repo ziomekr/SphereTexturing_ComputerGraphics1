@@ -53,7 +53,6 @@ namespace SphereTexturing_ComputerGraphics1
             Vector<double> vector = Vector<double>.Build.DenseOfArray(new double[] { b.X, b.Y, b.Z, b.W });
             vector = a * vector;
             return new Point3D { X = vector[0], Y = vector[1], Z = vector[2], W = vector[3] };
-
         }
 
     }

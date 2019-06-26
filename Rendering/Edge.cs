@@ -1,10 +1,11 @@
-﻿using System.Windows;
+﻿using SphereTexturing_ComputerGraphics1;
+using System.Windows;
 
 namespace ComputerGraphics_ClippingFilling
 {
     internal class Edge
     {
-        public Edge(Point p1, Point p2)
+        public Edge(Point3D p1, Point3D p2)
         {
             if (p1.Y > p2.Y)
                 ymax = (int)p1.Y;
