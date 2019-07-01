@@ -18,5 +18,13 @@ namespace SphereTexturing_ComputerGraphics1
         public Vertex V1 { get; set; }
         public Vertex V2 { get; set; }
         public Vertex V3 { get; set; }
+        public List<Vertex> GetVertices()
+        {
+            List<Vertex> vertices = new List<Vertex>();
+            vertices.Add(V1);
+            vertices.Add(V2);
+            vertices.Add(V3);
+            return vertices;
+        }
     }
 }

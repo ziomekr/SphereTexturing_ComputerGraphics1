@@ -35,7 +35,7 @@ namespace SphereTexturing_ComputerGraphics1
                     int x = (int)(Radius * Math.Cos(2 * Math.PI * j / Meridians) * Math.Sin( (i+1) * Math.PI / (Parallels + 1)));
                     int y = (int)(Radius * Math.Cos((i + 1) * Math.PI / (Parallels + 1)));
                     int z = (int)(Radius * Math.Sin(2 * Math.PI * j / Meridians) * Math.Sin((i + 1) * Math.PI / (Parallels + 1)));
-                    vertices[i * Meridians + j + 1] = new Vertex { P = new Point3D(x, y, z , 1), TextureCoordinates = new MappingPoint((double)j / (Meridians - 1), (double)(i+1)/(Parallels+1)) };
+                    vertices[i * Meridians + j + 1] = new Vertex { P = new Point3D(x, y, z , 1), TextureCoordinates = new MappingPoint((double)j / (double)(Meridians - 1), (double)(i+1)/(double)(Parallels+1)) };
                 }
             }
             vertices[Meridians * Parallels + 1] = new Vertex { P = new Point3D(0, -Radius, 0, 1), TextureCoordinates = new MappingPoint(0, 0.5) };
@@ -68,7 +68,7 @@ namespace SphereTexturing_ComputerGraphics1
                     Mesh[(2 * i + 1) * Meridians + j - 1] = new MeshTriangle(vertices[i * Meridians + j], vertices[i * Meridians + j + 1], vertices[(i + 1) * Meridians + j + 1]);
                     Mesh[(2 * i + 2) * Meridians + j - 1] = new MeshTriangle(vertices[i * Meridians + j], vertices[(i + 1) * Meridians + j + 1], vertices[(i + 1) * Meridians + j]);
                 }
-                Mesh[(2 * i + 1) * Meridians + Meridians - 1] = new MeshTriangle(vertices[(i + 1) * Meridians], vertices[i * Meridians + 1], vertices[(i + 1) * Meridians * 1]);
+                Mesh[(2 * i + 1) * Meridians + Meridians - 1] = new MeshTriangle(vertices[(i + 1) * Meridians], vertices[i * Meridians + 1], vertices[(i + 1) * Meridians + 1]);
                 Mesh[(2 * i + 2) * Meridians + Meridians - 1] = new MeshTriangle(vertices[(i + 1) * Meridians], vertices[(i + 1) * Meridians + 1], vertices[(i + 2) * Meridians]);
             }
         }

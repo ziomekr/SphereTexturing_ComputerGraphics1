@@ -64,7 +64,7 @@
     <Compile Include="Models\Camera.cs" />
     <Compile Include="Models\MeshTriangle.cs" />
     <Compile Include="Rendering\Edge.cs" />
-    <Compile Include="Rendering\ScanlineFillVertexSort.cs" />
+    <Compile Include="Rendering\ScanlineTexture.cs" />
     <Compile Include="Models\Scene.cs" />
     <Compile Include="Rendering\TransformationMatrix.cs" />
     <Compile Include="Models\Sphere.cs" />

@@ -5,16 +5,19 @@ namespace ComputerGraphics_ClippingFilling
 {
     internal class Edge
     {
-        public Edge(Point3D p1, Point3D p2)
+        public Edge(Vertex v1, Vertex v2)
         {
-            if (p1.Y > p2.Y)
-                ymax = (int)p1.Y;
+            V1 = v1;
+            V2 = v2;
+
+            if (v1.Projected.Y > v2.Projected.Y)
+                ymax = (int)v1.Projected.Y;
             else
-                ymax = (int)p2.Y;
-            x = p1.X;
-            if (p1.X != p2.X && p2.Y != p1.Y)
+                ymax = (int)v2.Projected.Y;
+            x = v1.Projected.X;
+            if (v1.Projected.X != v2.Projected.X && v2.Projected.Y != v1.Projected.Y)
             {
-                invM = 1 / ((p2.Y - p1.Y) / (p2.X - p1.X));
+                invM = 1 / ((v2.Projected.Y - v1.Projected.Y) / (v2.Projected.X - v1.Projected.X));
             }
             else
                 invM = 0;
@@ -23,5 +26,7 @@ namespace ComputerGraphics_ClippingFilling
         public double invM { get; set; }
         public double x { get; set; }
         public int ymax { get; set; }
+        public Vertex V1 { get; set; }
+        public Vertex V2 { get; set; }
     }
 }

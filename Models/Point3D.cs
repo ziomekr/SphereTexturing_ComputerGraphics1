@@ -32,7 +32,11 @@ namespace SphereTexturing_ComputerGraphics1
         {
             return Math.Sqrt(Math.Pow(this.X, 2) + Math.Pow(this.Y, 2) + Math.Pow(this.Z, 2) + Math.Pow(this.W, 2));
         }
-
+        public void NormalizeToPixels()
+        {
+            X = (int)X;
+            Y = (int)Y;
+        }
         public static double operator* (Point3D a, Point3D b)
         {
             return a.X * b.X + a.Y * b.Y + a.Z * b.Z;

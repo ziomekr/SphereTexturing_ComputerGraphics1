@@ -23,6 +23,18 @@ namespace SphereTexturing_ComputerGraphics1
 
         public double X { get; set; }
         public double Y { get; set; }
+        public static MappingPoint operator *(double a, MappingPoint b)
+        {
+            return new MappingPoint(a * b.X, a * b.Y);
+        }
+        public static MappingPoint operator +(MappingPoint a, MappingPoint b)
+        {
+            return new MappingPoint(a.X + b.X, a.Y + b.Y);
+        }
+        public static MappingPoint operator -(MappingPoint a, MappingPoint b)
+        {
+            return new MappingPoint(a.X - b.X, a.Y - b.Y);
+        }
     }
 
     
